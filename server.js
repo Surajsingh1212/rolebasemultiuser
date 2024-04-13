@@ -9,9 +9,13 @@ const port = process.env.SERVER_PORT | 3000
 app.use(express.json())
 app.use(express.static('public'))
 
+// authRoutes
 const authRoute = require('./routes/authRoute')
-
 app.use('/api',authRoute)
+
+// adminRoutes
+const adminRoute = require('./routes/adminRoute')
+app.use('/api/admin',adminRoute)
 
 app.listen(port,()=>{
     console.log("Server running on port "+port)
